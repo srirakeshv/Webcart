@@ -8,6 +8,10 @@ import {
   Plus,
   Instagram,
   Twitter,
+  Pencil,
+  Music2,
+  GripVertical,
+  EllipsisVertical,
 } from "lucide-react";
 
 const Fullscreen = () => {
@@ -23,6 +27,24 @@ const Fullscreen = () => {
     {
       menuName: "Edit Design",
       icon: <Palette size={15} />,
+    },
+  ];
+
+  const List = [
+    {
+      image: "/Asset/Home/dummyGift.jpg",
+      itemName: "Custom Video or Product",
+      Price: "$9.99",
+    },
+    {
+      image: "/Asset/Home/dummyGift.jpg",
+      itemName: "Consulting",
+      Price: "$9.99",
+    },
+    {
+      image: "/Asset/Home/dummyGift.jpg",
+      itemName: "Custom Video or Product",
+      Price: "$9.99",
     },
   ];
 
@@ -64,6 +86,50 @@ const Fullscreen = () => {
                 </li>
               ))}
             </ul>
+            <div className="mt-4 mr-2 flex flex-col gap-4">
+              <div className="rounded-lg bg-white shadow-lg ml-4 p-3 py-5 flex items-center gap-5">
+                <img
+                  src={`${process.env.PUBLIC_URL}/Asset/Home/Avatar.png`}
+                  alt="Avatar"
+                  className="w-16 h-16"
+                />
+                <div>
+                  <p className="text-violet-950 font-semibold flex gap-2 items-center">
+                    Name <Pencil size={15} color="grey" />
+                  </p>
+                  <p className="text-gray-400">@Rohit45</p>
+                  <div className="flex gap-2 items-center mt-4">
+                    <div className="bg-gray-200 rounded-lg text-violet-950 w-7 h-7 flex justify-center items-center">
+                      <Music2 size={15} />
+                    </div>
+                    <div className="bg-gray-200 rounded-lg text-violet-950 w-7 h-7 flex justify-center items-center">
+                      <Instagram size={15} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="ml-4 flex flex-col gap-3">
+                {List.map((listItem, index) => (
+                  <div className="rounded-lg shadow-lg bg-white flex justify-between items-center p-3 py-5">
+                    <div className="flex gap-3 items-center">
+                      <GripVertical size={20} />
+                      <img
+                        src={`${process.env.PUBLIC_URL}${listItem.image}`}
+                        alt="images"
+                        className="w-12 h-12"
+                      />
+                      <div>
+                        <p className="text-violet-950 font-semibold">
+                          {listItem.itemName}
+                        </p>
+                        <p className="text-gray-400">{listItem.Price}</p>
+                      </div>
+                    </div>
+                    <EllipsisVertical size={20} />
+                  </div>
+                ))}
+              </div>
+            </div>
             <button className="bg-[#6154FC] text-white rounded-md flex justify-center items-center w-full py-2 mt-3">
               <Plus /> Add Product
             </button>
